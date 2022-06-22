@@ -7,4 +7,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MovieResponse(
     @SerialName("results") val movieList: List<MovieDataResponseModel>
-) : BaseResponseModel()
+) : BaseResponseModel() {
+
+    companion object {
+        val mocked = MovieResponse(listOf())
+    }
+}

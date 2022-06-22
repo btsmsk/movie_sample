@@ -2,7 +2,6 @@ package com.bsimsek.moviekmmsample.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bsimsek.moviekmmsample.Greeting
 import android.widget.TextView
 
 fun greet(): String {

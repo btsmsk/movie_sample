@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 
-class MovieTestDataSourceImpl(private val apiService: HttpClient) : MovieTestDataSource {
+class MovieRemoteDataSourceImpl(private val apiService: HttpClient) : MovieRemoteDataSource {
     override fun fetchMovies(movieType: String): Flow<Result<MovieResponse>> = flow {
         val response =
             apiService.get<MovieResponse>(urlString = "${AppKey.BASE_URL}$movieType") {
