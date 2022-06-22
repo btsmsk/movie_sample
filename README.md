@@ -1,1 +1,1 @@
-# movie_sample
+# Kotlin multiplatfrom mobile movie app sample
