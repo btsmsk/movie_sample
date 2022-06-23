@@ -44,6 +44,7 @@ fun MovieDataResponseModel.asDomainModel(): Movie {
         originalTitle = originalTitle,
         overview = overview,
         posterPath = posterPath ?: "",
-        releaseDate = releaseDate
+        releaseDate = releaseDate,
+        average = average.toString()
     )
 }

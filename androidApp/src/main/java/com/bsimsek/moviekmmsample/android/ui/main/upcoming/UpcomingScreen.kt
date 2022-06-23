@@ -1,19 +1,34 @@
 package com.bsimsek.moviekmmsample.android.ui.main.upcoming
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.sp
+import androidx.compose.runtime.collectAsState
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.bsimsek.moviekmmsample.android.ui.components.ErrorScreen
 import com.bsimsek.moviekmmsample.android.ui.components.ScreenContainer
+import com.bsimsek.moviekmmsample.android.ui.main.MovieContentScreen
+import com.bsimsek.moviekmmsample.data.model.remote.asDomainMovieList
 
 @Composable
 fun UpComingScreen(
     onMovieClicked: (movieId: Long) -> Unit,
+    viewModel: UpcomingViewModel = hiltViewModel()
 ) {
+    val state = viewModel.viewState.collectAsState().value
+
     ScreenContainer(
-        loadingState = false,
-        onRefresh = {},
+        loadingState = state.isLoading,
+        onRefresh = viewModel::initState
     ) {
-        Text(text = "Upcoming", color = Color.White, fontSize = 30.sp)
+        state.movieResponse?.let {
+            MovieContentScreen(
+                movieList = it.movieList.asDomainMovieList(),
+                onMovieClicked = onMovieClicked
+            )
+        }
+        state.error?.let {
+            ErrorScreen(message = it.message.toString()) {
+                viewModel.initState()
+            }
+        }
     }
 }

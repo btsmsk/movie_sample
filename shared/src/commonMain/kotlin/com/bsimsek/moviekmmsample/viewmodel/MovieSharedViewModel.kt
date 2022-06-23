@@ -1,6 +1,7 @@
 package com.bsimsek.moviekmmsample.viewmodel
 
 import com.bsimsek.moviekmmsample.AppKey
+import com.bsimsek.moviekmmsample.data.model.local.MovieCategory
 import com.bsimsek.moviekmmsample.internal.util.CommonFlow
 import com.bsimsek.moviekmmsample.internal.util.asCommonFlow
 import com.bsimsek.moviekmmsample.usecase.fetchMovies.FetchMoviesUseCase
@@ -28,9 +29,8 @@ class MovieSharedViewModel(
 
     private fun getUrl(type: Int): String {
         return when (type) {
-            1 -> AppKey.POPULAR_MOVIES
-            2 -> AppKey.NOW_PLAYING_MOVIES
-            3 -> AppKey.UPCOMING_MOVIES
+            MovieCategory.nowPlaying.id -> MovieCategory.nowPlaying.type
+            MovieCategory.upComing.id -> MovieCategory.upComing.type
             else -> AppKey.TOP_RATED_MOVIES
         }
     }

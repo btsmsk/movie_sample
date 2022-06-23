@@ -14,7 +14,7 @@ data class MovieResponse(
     val movieDataList: List<Movie> get() = movieList.asDomainMovieList()
 
     companion object {
-        val mocked = MovieResponse(listOf())
+        val mocked = MovieResponse(listOf(MovieDataResponseModel.mocked))
     }
 }
 

@@ -9,6 +9,7 @@ data class Movie(
     val releaseDate: String,
     val movieId: Long,
     val originalTitle: String,
+    val average: String
 ) {
     val poster = "https://image.tmdb.org/t/p/w300/$posterPath"
     companion object {
