@@ -4,7 +4,7 @@ import com.bsimsek.moviekmmsample.data.model.remote.MovieResponse
 import com.bsimsek.moviekmmsample.data.repo.MovieRepository
 import kotlinx.coroutines.flow.Flow
 
-class FetchMoviesImpl(private val movieRepository: MovieRepository) : FetchMovies {
+class FetchMoviesUseCaseImpl(private val movieRepository: MovieRepository) : FetchMoviesUseCase {
     override fun invoke(movieType: String): Flow<Result<MovieResponse>> {
         return movieRepository.fetchMovies(movieType)
     }

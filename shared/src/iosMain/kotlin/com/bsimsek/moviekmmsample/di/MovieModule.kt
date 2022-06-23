@@ -4,8 +4,8 @@ import com.bsimsek.moviekmmsample.data.repo.MovieRepository
 import com.bsimsek.moviekmmsample.data.repo.MovieRepositoryImpl
 import com.bsimsek.moviekmmsample.data.source.MovieRemoteDataSource
 import com.bsimsek.moviekmmsample.data.source.MovieRemoteDataSourceImpl
-import com.bsimsek.moviekmmsample.usecase.fetchMovies.FetchMovies
-import com.bsimsek.moviekmmsample.usecase.fetchMovies.FetchMoviesImpl
+import com.bsimsek.moviekmmsample.usecase.fetchMovies.FetchMoviesUseCase
+import com.bsimsek.moviekmmsample.usecase.fetchMovies.FetchMoviesUseCaseImpl
 
 class MovieModule {
 
@@ -19,8 +19,8 @@ class MovieModule {
         MovieRepositoryImpl(remoteDataSource = remoteSource)
     }
 
-    private val fetchMovies: FetchMovies by lazy {
-        FetchMoviesImpl(movieRepository)
+    private val fetchMoviesUseCase: FetchMoviesUseCase by lazy {
+        FetchMoviesUseCaseImpl(movieRepository)
     }
 
 }

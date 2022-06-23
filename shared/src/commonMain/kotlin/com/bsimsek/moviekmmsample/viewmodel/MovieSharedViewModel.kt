@@ -3,14 +3,14 @@ package com.bsimsek.moviekmmsample.viewmodel
 import com.bsimsek.moviekmmsample.AppKey
 import com.bsimsek.moviekmmsample.internal.util.CommonFlow
 import com.bsimsek.moviekmmsample.internal.util.asCommonFlow
-import com.bsimsek.moviekmmsample.usecase.fetchMovies.FetchMovies
+import com.bsimsek.moviekmmsample.usecase.fetchMovies.FetchMoviesUseCase
 import com.bsimsek.moviekmmsample.viewstate.MovieViewState
 import com.bsimsek.moviekmmsample.viewstate.resetState
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 class MovieSharedViewModel(
-    private val fetchMoviesUseCase: FetchMovies
+    private val fetchMoviesUseCase: FetchMoviesUseCase
 ) {
 
     fun fetchMovie(viewState: MovieViewState, type: Int): CommonFlow<MovieViewState> = flow {
