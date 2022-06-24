@@ -1,6 +1,5 @@
 package com.bsimsek.moviekmmsample.android.ui.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Card

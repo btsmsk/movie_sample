@@ -10,10 +10,10 @@ data class MovieCategory(
     constructor() : this(0, "", "")
 
     companion object {
-        val upComing =
-            MovieCategory(id = 2, type = AppKey.UPCOMING_MOVIES, name = "Upcoming")
         val nowPlaying =
             MovieCategory(id = 1, type = AppKey.NOW_PLAYING_MOVIES, name = "Now Playing")
+        val upComing =
+            MovieCategory(id = 2, type = AppKey.UPCOMING_MOVIES, name = "Upcoming")
         val movieCategories: List<MovieCategory> = listOf(upComing, nowPlaying)
     }
 }

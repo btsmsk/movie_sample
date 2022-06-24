@@ -7,7 +7,6 @@ plugins {
     kotlin("native.cocoapods")
     id("com.android.library")
     kotlin("plugin.serialization") version "1.5.30"
-    id("com.squareup.sqldelight")
     id("com.codingfeline.buildkonfig")
 }
 
@@ -28,7 +27,7 @@ kotlin {
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        ios.deploymentTarget = "14.1"
+        ios.deploymentTarget = "15.2"
         frameworkName = "shared"
         podfile = project.file("../iosApp/Podfile")
         framework {
@@ -48,7 +47,6 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
                 implementation("co.touchlab:stately-common:1.1.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt")
-                implementation("com.squareup.sqldelight:runtime:1.5.0")
             }
         }
         val commonTest by getting {
@@ -64,7 +62,6 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-android:1.6.2")
-                implementation("com.squareup.sqldelight:android-driver:1.5.1")
             }
         }
         val androidTest by getting {
@@ -76,7 +73,6 @@ kotlin {
         val iosMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:1.6.2")
-                implementation("com.squareup.sqldelight:native-driver:1.5.0")
             }
         }
         val iosTest by getting
@@ -122,12 +118,5 @@ buildkonfig {
         buildConfigField(STRING, "NOW_PLAYING_MOVIES", ApiKey.NOW_PLAYING_MOVIES)
         buildConfigField(STRING, "MOVIE_DETAIL", ApiKey.MOVIE_DETAIL)
         buildConfigField(STRING, "MOVIE_REVIEW", ApiKey.MOVIE_REVIEW)
-    }
-}
-
-sqldelight {
-    database("AppDatabase") {
-        packageName = "com.habileducation.movie.data.source"
-        sourceFolders = listOf("sqldelight")
     }
 }

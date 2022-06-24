@@ -6,6 +6,7 @@ import com.bsimsek.moviekmmsample.data.source.MovieRemoteDataSource
 import com.bsimsek.moviekmmsample.data.source.MovieRemoteDataSourceImpl
 import com.bsimsek.moviekmmsample.usecase.fetchMovies.FetchMoviesUseCase
 import com.bsimsek.moviekmmsample.usecase.fetchMovies.FetchMoviesUseCaseImpl
+import com.bsimsek.moviekmmsample.viewmodel.MovieSharedViewModel
 
 class MovieModule {
 
@@ -21,6 +22,10 @@ class MovieModule {
 
     private val fetchMoviesUseCase: FetchMoviesUseCase by lazy {
         FetchMoviesUseCaseImpl(movieRepository)
+    }
+
+    val movieSharedViewModel: MovieSharedViewModel by lazy {
+        MovieSharedViewModel(fetchMoviesUseCase)
     }
 
 }
