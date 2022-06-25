@@ -10,8 +10,10 @@ struct MainScreen: View {
     ]
     
     init() {
-        UINavigationBar.appearance().backgroundColor = UIColor(Color.black)
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        let navbarAppearance = UINavigationBarAppearance()
+                navbarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+                navbarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navbarAppearance.backgroundColor = UIColor.systemBackground
         UINavigationBar.appearance().isTranslucent = false
     }
     

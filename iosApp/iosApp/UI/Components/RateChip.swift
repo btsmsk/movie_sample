@@ -9,13 +9,28 @@
 import SwiftUI
 
 struct RateChip: View {
+    var rate: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            RoundedRectangle(cornerRadius: 8, style: .continuous).fill(Color.black)
+            VStack(alignment: .leading, spacing: nil, content: {
+                HStack{
+                    
+                    Image("ic_star").resizable().clipped()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 16, height: 16)
+                    
+                    
+                    Text(rate).font(.caption2).frame(alignment: Alignment.leading).foregroundColor(Color.white)
+                }
+            })
+        }.frame(width: 50, height: 24)
     }
 }
 
 struct RateChip_Previews: PreviewProvider {
     static var previews: some View {
-        RateChip()
+        RateChip(rate: "12")
     }
 }

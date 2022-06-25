@@ -18,6 +18,7 @@ struct TabBarButton: View {
     var geoWidth: CGFloat
     @Binding var selectedTab: Int
     
+    //TODO: fix theme
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { proxy in
@@ -32,15 +33,15 @@ struct TabBarButton: View {
                                 VStack(spacing: 0) {
                                     Text(tabs[row].title)
                                         .font(Font.system(size: 18, weight: .semibold))
-                                        .foregroundColor(Color.white)
+                                        .foregroundColor(Color(UIColor.white))
                                         .padding(EdgeInsets(top: 10, leading: 3, bottom: 10, trailing: 15))
                                         .frame(width: fixed ? (geoWidth / CGFloat(tabs.count)) : .none, height: 52)
                                     // Bar Indicator
-                                    Rectangle().fill(selectedTab == row ? Color.white : Color.clear)
+                                    Rectangle().fill(selectedTab == row ? Color(UIColor.white) : Color.clear)
                                         .frame(height: 3)
                                 }.fixedSize()
                             })
-                                .accentColor(Color.white)
+                                .accentColor(Color(UIColor.white))
                                 .buttonStyle(PlainButtonStyle())
                         }
                     }
@@ -49,7 +50,7 @@ struct TabBarButton: View {
                             proxy.scrollTo(target)
                         }
                     }
-                    .background(Color.black)
+                    .background(Color(UIColor.secondarySystemBackground))
                 }
             }
         }

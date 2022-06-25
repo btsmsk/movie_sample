@@ -21,7 +21,7 @@ struct MovieItem: View {
     var body: some View {
         
         ZStack{
-            RoundedRectangle(cornerRadius: 8, style: .continuous).fill(Color.white).shadow(radius: 3)
+            RoundedRectangle(cornerRadius: 8, style: .continuous).fill(Color(UIColor.secondarySystemBackground)).shadow(radius: 3)
             VStack(alignment: .leading, spacing: nil, content: {
                 HStack{
                     
@@ -44,8 +44,10 @@ struct MovieItem: View {
                         HStack{
                             Text("Release Date: \(movie.releaseDate)").font(.body).padding(.top, 12)
                             Spacer()
+                            RateChip(rate: movie.average).padding()
                         }
-                    }.frame(height: 130)
+                        
+                    }
                 }
             })
         } .onAppear(perform: {loader.load()})
